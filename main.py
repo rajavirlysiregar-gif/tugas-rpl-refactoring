@@ -1,14 +1,11 @@
-# main.py (Kondisi Awal: Banyak Code Smells)
-def hitung(q, p):
-    # menghitung total
-    tot = q * p
-    if tot > 100000:
-        tot = tot - (tot * 0.1) # diskon
+def calculate_total_payment(quantity, unit_price):
+    base_price = quantity * unit_price
+    if base_price > 100000:
+        base_price = base_price - (base_price * 0.1)
+    
+    tax_amount = base_price * 0.11
+    final_price = base_price + tax_amount
+    print("Total:", final_price)
+    return final_price
 
-    # tambah pajak
-    pjk = tot * 0.11
-    akhir = tot + pjk
-    print("Total:", akhir)
-    return akhir
-
-hitung(2, 60000)
+calculate_total_payment(2, 60000)
