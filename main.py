@@ -1,9 +1,13 @@
+TAX_RATE = 0.11
+DISCOUNT_RATE = 0.10
+DISCOUNT_THRESHOLD = 100000
+
 def calculate_total_payment(quantity, unit_price):
     base_price = quantity * unit_price
-    if base_price > 100000:
-        base_price = base_price - (base_price * 0.1)
+    if base_price > DISCOUNT_THRESHOLD:
+        base_price = base_price - (base_price * DISCOUNT_RATE)
     
-    tax_amount = base_price * 0.11
+    tax_amount = base_price * TAX_RATE
     final_price = base_price + tax_amount
     print("Total:", final_price)
     return final_price
